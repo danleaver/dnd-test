@@ -8,14 +8,27 @@ const Board = (props) => {
   return (
     <div
       ref={drop}
-      style={{ opacity: isActive ? 0.5 : 1, backgroundColor: "#FAF9FF" }}
+      style={{ 
+        opacity: isActive ? 0.5 : 1, 
+        backgroundColor: "#FAF9FF", 
+        padding: "1rem",
+        height: "500px"
+        // whiteSpace: "initial",
+        // flexShrink: "0",
+        // textOverflow: "ellipsis",
+      }}
     >
-      <strong>
-        {props.title}  
-      </strong>
+      <div style={{textAlign: "center"}}>
+        <strong>
+          {props.title}  
+        </strong>        
+      </div>
       {props.cards.map(card => (
-        <DraggableCard key={card.id} {...card}/>
-        ))}
+        <>
+          <div style={{height: "1rem"}}></div>
+          <DraggableCard key={card.id} {...card}/>
+        </>
+      ))}
     </div>     
   )
 }
